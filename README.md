@@ -78,3 +78,8 @@ Practical tip: if the browser blocks features due to local file policies, use a 
 
 - **Supertonic (2019):** Arantxa Garayzar Cristerna and **ANR**.  
 - **TonicTwo (modernization):** Arantxa Garayzar Cristerna.
+
+## License
+
+This project is licensed under the **GNU General Public License v3.0 (GPLv3)**.  
+See `LICENSE` for details.
