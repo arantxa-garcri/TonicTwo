@@ -16,7 +16,7 @@ A minimal step sequencer with 7 notes (C, D, E, F, G, A, B) and 8 steps per bar.
 
 ## Origins and academic context (Supertonic, 2019)
 
-**Supertonic** was developed at **Universidad Autónoma Metropolitana (UAM), Unidad Cuajimalpa**, within the **B.S. in Information Technologies and Systems**, as part of the course **Laboratorio Temático II**, under the guidance of **Prof. Alba R. Núñez Reyes**. The final documentation is dated **November 26, 2019**.
+**Supertonic** was developed at **Universidad Autónoma Metropolitana (UAM), Unidad Cuajimalpa**, within the **B.S. in Information Technologies and Systems**, as part of the course **Laboratorio Temático II**, under the guidance of **Prof. Alba R. Núñez Reyes**. and **Prof. Wulfrano Arturo Luna** The final documentation is dated **November 26, 2019**.
 
 Its core motivation was to show that music and art are not “outside” computing, and to bring music technology closer to people: creative making can also happen “on a screen”.
 
