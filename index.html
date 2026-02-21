@@ -1,0 +1,147 @@
+<!--
+  File: index.html
+  Project: TonicTwo (Step Sequencer)
+  Description:
+    TonicTwo is a minimal 7x8 step sequencer with a left sidebar UI that groups:
+      - SETTINGS (BPM + Transpose + Title)
+      - RECORD YOUR MELODY (Record controls + REC indicator + playback)
+    The main area contains the sequencer grid.
+
+  Author: Arantxa Garayzar Cristerna
+  Created: 2020 (original)
+  Updated: 2026-02-20 (modernized as TonicTwo)
+
+  Dependencies:
+    - Tone.js (CDN)
+    - app.js (local)
+    - style.css (local)
+
+  Notes:
+    - Audio starts only after a user gesture (browser autoplay policy).
+    - Recording exports OGG/WebM depending on browser support.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TonicTwo</title>
+
+  <link rel="stylesheet" href="./style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/15.3.5/Tone.js"></script>
+</head>
+
+<body>
+  <!-- =========================================================================
+       App Shell: Sidebar (left) + Main (right)
+       ====================================================================== -->
+  <div class="app">
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar">
+      <header class="brand">
+        <div class="brand-title">TONICTWO</div>
+        <div class="brand-subtitle">Step Sequencer</div>
+      </header>
+
+      <!-- --------------------- SECTION: SETTINGS --------------------- -->
+      <section class="panel" aria-label="Settings">
+        <h3 class="panel-title">SETTINGS</h3>
+
+        <div class="field">
+          <label class="label" for="bpm">BPM</label>
+          <input id="bpm" type="number" value="120" min="40" max="240" step="1" />
+        </div>
+
+        <div class="field">
+          <label class="label" for="transpose">Transpose</label>
+          <div class="range-row">
+            <input id="transpose" type="range" min="-12" max="12" value="0" step="1" />
+            <span id="transposeValue" class="value">0</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label" for="trackName">Title</label>
+          <input id="trackName" type="text" placeholder="My riff..." maxlength="60" />
+        </div>
+
+        <div class="buttons-row">
+          <button id="play" type="button">Play/Pause</button>
+          <button id="clear" type="button">Clear</button>
+        </div>
+      </section>
+
+      <!-- --------------------- SECTION: RECORD --------------------- -->
+      <section class="panel" aria-label="Record your melody">
+        <h3 class="panel-title">RECORD YOUR MELODY</h3>
+
+        <div class="rec-row">
+          <span id="recIndicator" class="rec-indicator" aria-live="polite">● REC</span>
+        </div>
+
+        <div class="buttons-row">
+          <button id="record" type="button">Record</button>
+          <button id="stoprecord" type="button">Stop</button>
+        </div>
+
+        <audio controls></audio>
+
+        <p class="hint">
+          Tip: Name your track before recording so the download file uses that title.
+        </p>
+      </section>
+    </aside>
+
+    <!-- ===================== MAIN ===================== -->
+    <main class="main">
+      <header class="main-header">
+        <h2 class="main-title">SEQUENCER</h2>
+        <p class="main-subtitle">Check steps to build a pattern. Transpose changes pitch globally.</p>
+      </header>
+
+      <!-- Sequencer grid: 7 rows (C..B) x 8 steps -->
+      <div id="board" aria-label="Sequencer grid">
+        <div>
+          <div id="C">C
+            <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+            <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+          </div>
+
+          <div id="D">D
+            <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+            <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+          </div>
+
+          <div id="E">E
+            <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+            <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+          </div>
+
+          <div id="F">F
+            <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+            <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+          </div>
+
+          <div id="G">G
+            <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+            <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+          </div>
+
+          <div id="A">A
+            <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+            <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+          </div>
+
+          <div id="B">B
+            <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+            <input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox">
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
